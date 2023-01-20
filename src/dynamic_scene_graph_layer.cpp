@@ -292,6 +292,20 @@ Eigen::Vector3d DynamicSceneGraphLayer::getPositionByIndex(size_t node_index) co
   return nodes_.at(node_index)->attributes().position;
 }
 
+Eigen::Vector3d DynamicSceneGraphLayer::getLatestNodePosition() const {
+  Eigen::Vector3d position;
+
+  for(int i = nodes_.size() - 1; i >= 0; i--){
+    if(nodes_[i] != nullptr){
+      position = nodes_[i]->attributes().position;
+      break;
+    }
+  }
+
+  return position;
+}
+
+
 void DynamicSceneGraphLayer::getNewNodes(std::vector<NodeId>& new_nodes,
                                          bool clear_new) {
   auto iter = node_status_.begin();

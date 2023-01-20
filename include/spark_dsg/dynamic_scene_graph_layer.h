@@ -96,6 +96,8 @@ class DynamicSceneGraphLayer : public BaseLayer {
   Eigen::Vector3d getPosition(NodeId node) const;
 
   Eigen::Vector3d getPositionByIndex(size_t node_index) const;
+  
+  Eigen::Vector3d getLatestNodePosition() const;
 
   const LayerId id;
 
